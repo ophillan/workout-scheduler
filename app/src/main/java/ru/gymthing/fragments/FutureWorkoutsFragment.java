@@ -106,6 +106,9 @@ public class FutureWorkoutsFragment extends Fragment {
                 if (position > 0) {
                     holder.finishedWorkoutButton.setVisibility(View.INVISIBLE);
                     holder.skippedWorkoutButton.setVisibility(View.INVISIBLE);
+                } else {
+                    holder.finishedWorkoutButton.setVisibility(View.VISIBLE);
+                    holder.skippedWorkoutButton.setVisibility(View.VISIBLE);
                 }
                 holder.finishedWorkoutButton.setOnClickListener(new View.OnClickListener() {
                     @Override

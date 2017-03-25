@@ -47,13 +47,11 @@ public class WorkoutCreaterActivity extends AppCompatActivity {
         if (dbHelper.readFromDatabaseWithFinishedValueOf(0).size() != 0) dbHelper.truncateDB();
 
         Date date = new Date();
-        int i = 0;
         int day = date.getDay();
-        for (EditText editText : editTexts) {
+        for (int i = 0; i < 7; i++, day++) {
+            int index = (day - 1) % 7;
             Date date1 = DateUtil.addDays(date, i);
-            dbHelper.insertIntoDB(new Workout(editText.getText().toString(), days[(day - 1) % 7], date1));
-            day++;
-            i++;
+            dbHelper.insertIntoDB(new Workout(editTexts[index].getText().toString(), days[index], date1));
         }
     }
 }
